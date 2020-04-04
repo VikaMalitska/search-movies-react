@@ -1,7 +1,19 @@
-export const getTrendingMoviesFetch = () =>
+import {API_URL, API_KEY} from "./utils";
+
+export const getTrendingMoviesFetch = (sortBy, curPage) =>
     fetch(
-        "https://api.themoviedb.org/3/trending/all/day?api_key=43d51e0d199eab5d93143f2c5071d8e1",
+        `${API_URL}/discover/movie?api_key=${API_KEY}&sort_by=${sortBy}&page=${curPage}`,
         {
             method: "Get"
         }
     );
+
+
+
+export const queryStringFetch = () => 
+        fetch(
+            `https://developers.themoviedb.org/3/discover/movie-discover?api_key=${API_KEY}`,
+            {
+                method: "Get"
+            } 
+        )
